@@ -1,6 +1,24 @@
 <h1> New Page </h1>
-
+<div id="chatbox"></div>
 <div>
-  <textarea class='form-control' rows='4'> </textarea>
+  <textarea id='body' class='form-control' rows='4'> </textarea>
 </div>
 
+
+<script>
+$(function() {
+  var elast, n = 1;
+  $("#body").keypress(function (e) {
+    if(e.which == 13 && elast == 13) {
+      $("#chatbox").append("<div id='para" + n + "'>" +
+          $(this).val().
+          replace( /\n/g, '<br/><br/>' ) + "</div>");
+      $(this).val("");
+      e.preventDefault();
+      n++;
+    }
+    elast = e.which;
+  });
+});
+
+</script>

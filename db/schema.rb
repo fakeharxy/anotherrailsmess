@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103153358) do
+ActiveRecord::Schema.define(version: 20170103205038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "paragraphs", force: :cascade do |t|
     t.text     "body"
@@ -22,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170103153358) do
     t.date     "todo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "page_id"
+    t.index ["page_id"], name: "index_paragraphs_on_page_id", using: :btree
   end
 
 end

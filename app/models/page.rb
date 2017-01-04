@@ -1,3 +1,3 @@
 class Page < ApplicationRecord
-  has_many :pages
+  has_many :paragraphs
 end

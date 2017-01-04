@@ -13,7 +13,7 @@ $(function() {
       $("#chatbox").append("<div class='para' id='para" + n + "'>" +
           $(this).val().
           replace( /\n/g, '<br/><br/>' ) + "</div>");
-      $.post( '/pages/paragraph', { body: $(this).val, para: n } );
+      $.post( '/pages/paragraph', { body: $(this).val(), para: n } );
       $(this).val("");
       e.preventDefault();
       n++;

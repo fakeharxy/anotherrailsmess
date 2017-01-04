@@ -3,3 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.para {
+  margin: 5px 0px 5px 0px;
+  vertical-align: middle;
+}
+.para:hover {
+    background-color: yellow;
+}

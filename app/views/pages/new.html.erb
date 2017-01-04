@@ -10,10 +10,10 @@ $(function() {
   var elast, n = 1;
   $("#body").keypress(function (e) {
     if(e.which == 13 && elast == 13) {
-      $("#chatbox").append("<div id='para" + n + "'>" +
+      $("#chatbox").append("<div class='para' id='para" + n + "'>" +
           $(this).val().
           replace( /\n/g, '<br/><br/>' ) + "</div>");
-      $.post( '/paragraph', { name: "John", time: "2pm" } );
+      $.post( '/pages/paragraph', { body: $(this).val, para: n } );
       $(this).val("");
       e.preventDefault();
       n++;

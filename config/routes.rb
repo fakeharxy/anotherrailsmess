@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
+  post 'pages/paragraph', to: 'pages#set_paragraph'
 
   resources :pages
   root 'welcome#index'

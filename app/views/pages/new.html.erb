@@ -1,22 +1,28 @@
 <h1> New Page </h1>
-<div id="chatbox"></div>
-<div>
+
+<% @paragraphs.each do |paragraph| %>
+  <div class='para' id='para<%= paragraph.num %>'>
+    <%=raw paragraph.body %> 
+  </div>
+<% end %>
+
+<div class="chatbox">
   <textarea id='body' class='form-control' rows='4'> </textarea>
 </div>
 
 
 <script>
 $(function() {
-  var elast, n = 1;
+  var elast;
   $("#body").keypress(function (e) {
     if(e.which == 13 && elast == 13) {
-      $("#chatbox").append("<div class='para' id='para" + n + "'>" +
-          $(this).val().
-          replace( /\n/g, '<br/><br/>' ) + "</div>");
-      $.post( '/pages/paragraph', { body: $(this).val(), para: n } );
+      $(".chatbox").before("<div class='para' id='para'>" +
+        $(this).val().
+        replace( /\n/g, '<br/>' ) + "</div>");
+      $.post( '/pages/paragraph', { body: $(this).val()
+        .replace( /\n/g, '<br/>')});
       $(this).val("");
       e.preventDefault();
-      n++;
     }
     elast = e.which;
   });

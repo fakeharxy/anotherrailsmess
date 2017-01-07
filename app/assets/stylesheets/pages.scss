@@ -4,9 +4,12 @@
 
 
 .para {
-  margin: 5px 0px 5px 0px;
-  vertical-align: middle;
+  padding: 5px 0px 5px 0px;
 }
 .para:hover {
     background-color: yellow;
+}
+
+.chatbox {
+  margin-top: 7px;
 }

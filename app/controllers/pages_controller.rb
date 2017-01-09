@@ -2,6 +2,13 @@ class PagesController < ApplicationController
   before_action :create_page
 
   def index
+    @pages = Page.all.reverse
+    @pages.shift
+  end
+
+  def show
+    @past_page = Page.find(params[:id])
+    @paragraphs = @past_page.paragraphs.all
   end
 
   def new

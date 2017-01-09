@@ -1,3 +1,10 @@
 <h3> Pages </h3>
 
+<% if (@pages != []) %>
+  <% @pages.each do |page| %>
+    <li><a href="/pages/<%= page.id %>"> <%= page.date %> </a></li>
+  <% end %>
+<% else %>
+  <p> Looks like you haven't started your focusjournal yet. Go to Today to start! </p>
+<% end %>
 

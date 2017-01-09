@@ -1,0 +1,7 @@
+<h1>Old Page</h1>
+
+  <% @paragraphs.each do |paragraph| %>
+    <div class='para' id='para<%= paragraph.num %>'>
+      <%=raw paragraph.body %> 
+    </div>
+  <% end %>

@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   before_action :create_page
 
+  def index
+  end
+
   def new
     @paragraphs = @page.paragraphs.all
   end

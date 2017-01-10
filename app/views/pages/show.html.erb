@@ -1,7 +1,11 @@
 <h1>Old Page</h1>
 
-  <% @paragraphs.each do |paragraph| %>
-    <div class='para' id='para<%= paragraph.num %>'>
-      <%=raw paragraph.body %> 
+<% @paragraphs.each do |paragraph| %>
+  <div class="panel panel-borderless">
+    <div class='para panel-body' id='para<%= paragraph.num %>'>
+      <button class="btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
+      <button class="btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
+      <%=raw paragraph.body %>
     </div>
-  <% end %>
+  </div>
+<% end %>

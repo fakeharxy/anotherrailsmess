@@ -2,12 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .para {
   padding: 5px 0px 5px 0px;
 }
+
 .para:hover {
-    background-color: yellow;
+  background-color: lightgrey;
+}
+
+.panel-borderless {
+  border: 0;
+  box-shadow: none !important;
+}
+
+.panel-borderless:hover .btn-xs {
+  display:block !important;
+}
+
+.btn-xs {
+  margin-left: 5px;
+  display: none !important;
+}
+
+.panel-body {
+  padding: 5px !important;
 }
 
 .chatbox {

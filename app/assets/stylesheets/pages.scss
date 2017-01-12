@@ -7,7 +7,11 @@
 }
 
 .para:hover {
-  background-color: lightgrey;
+  background-color: #fafafa;
+}
+
+.btn-xs:focus {
+  outline: none;
 }
 
 .panel-borderless {

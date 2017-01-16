@@ -38,10 +38,10 @@ $(function() {
 });
 
 $(document).off('click', '.todo').on('click', '.todo', function () {
-  console.log($('.todo').length);
+  console.log($(this).index('.todo') + 1);
 });
 
 $(document).off('click', '.important').on('click', '.important', function () {
-  alert("hello");
+  console.log($(this).index('.important') + 1);
 });
 </script>

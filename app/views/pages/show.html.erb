@@ -3,9 +3,19 @@
 <% @paragraphs.each do |paragraph| %>
   <div class="panel panel-borderless">
     <div class='para panel-body' id='para<%= paragraph.num %>'>
-      <button class="btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
-      <button class="btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
+      <button class="todo btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
+      <button class="important btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
       <%=raw paragraph.body %>
     </div>
   </div>
 <% end %>
+
+<script>
+  $(document).off('click', '.todo').on('click', '.todo', function () {
+    alert("hello");
+  });
+
+  $(document).off('click', '.important').on('click', '.important', function () {
+    alert("hello");
+  });
+</script>

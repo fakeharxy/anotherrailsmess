@@ -11,11 +11,13 @@
 <% end %>
 
 <script>
-  $(document).off('click', '.todo').on('click', '.todo', function () {
-    alert("hello");
-  });
+$(document).off('click', '.todo').on('click', '.todo', function () {
+  var paraId = $(this).index('.todo') + 1;
+  $.post('/pages/paragraph/todo/' + paraId);
+});
 
-  $(document).off('click', '.important').on('click', '.important', function () {
-    alert("hello");
-  });
+$(document).off('click', '.important').on('click', '.important', function () {
+  var paraId = $(this).index('.important') + 1;
+  $.post('/pages/paragraph/important/' + paraId);
+});
 </script>

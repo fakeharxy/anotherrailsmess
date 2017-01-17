@@ -38,10 +38,12 @@ $(function() {
 });
 
 $(document).off('click', '.todo').on('click', '.todo', function () {
-  console.log($(this).index('.todo') + 1);
+  var paraId = $(this).index('.todo') + 1;
+  $.post('/pages/paragraph/todo/' + paraId);
 });
 
 $(document).off('click', '.important').on('click', '.important', function () {
-  console.log($(this).index('.important') + 1);
+  var paraId = $(this).index('.important') + 1;
+  $.post('/pages/paragraph/important/' + paraId);
 });
 </script>

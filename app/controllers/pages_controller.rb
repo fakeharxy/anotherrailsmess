@@ -16,8 +16,17 @@ class PagesController < ApplicationController
   end
 
   def set_paragraph
-    @page = Page.find_by(date: Date.today)
     @paragraph = @page.paragraphs.create(body: para_params[:body], num: @page.count)
+  end
+
+  def set_todo
+    change_paragraph = @page.paragraphs.find_by(num: params[:id])
+    change_paragraph.update(todo: Date.today)
+  end
+
+  def set_important
+    change_paragraph = @page.paragraphs.find_by(num: params[:id])
+    change_paragraph.update(important: true)
   end
 
   private

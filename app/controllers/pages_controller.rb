@@ -20,12 +20,14 @@ class PagesController < ApplicationController
   end
 
   def set_todo
-    change_paragraph = @page.paragraphs.find_by(num: params[:id])
+    page = params[:page] ? Page.find(params[:page]) : @page
+    change_paragraph = page.paragraphs.find_by(num: params[:id])
     change_paragraph.update(todo: Date.today)
   end
 
   def set_important
-    change_paragraph = @page.paragraphs.find_by(num: params[:id])
+    page = params[:page] ? Page.find(params[:page]) : @page
+    change_paragraph = page.paragraphs.find_by(num: params[:id])
     change_paragraph.update(important: true)
   end
 

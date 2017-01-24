@@ -20,21 +20,25 @@ class PagesController < ApplicationController
   end
 
   def set_todo
-    page = params[:page] ? Page.find(params[:page]) : @page
-    paragraph_to_update = page.find_paragraphs_by_num(params[:id])
-    paragraph_to_update.update(todo: Date.today)
+    find_page_if_archive
+      .find_paragraphs_by_num(params[:id])
+      .update(todo: Date.today)
   end
 
   def set_important
-    page = params[:page] ? Page.find(params[:page]) : @page
-    paragraph_to_update = page.find_paragraphs_by_num(params[:id])
-    paragraph_to_update.update(important: true)
+    find_page_if_archive
+      .find_paragraphs_by_num(params[:id])
+      .update(important: true)
   end
 
   private
 
   def create_page
     @page = Page.find_by(date: Date.today) || Page.create(date: Date.today)
+  end
+
+  def find_page_if_archive
+    params[:page] ? Page.find(params[:page]) : @page
   end
 
   def para_params

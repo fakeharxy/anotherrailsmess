@@ -9,5 +9,4 @@ class Page < ApplicationRecord
     paragraphs.find_by(num: id)
   end
 
-
 end

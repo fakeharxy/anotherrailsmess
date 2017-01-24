@@ -16,7 +16,8 @@ class PagesController < ApplicationController
   end
 
   def set_paragraph
-    @paragraph = @page.paragraphs.create(body: para_params[:body], num: @page.next_paragraph_number)
+    @page.paragraphs
+      .create(body: para_params[:body], num: @page.next_paragraph_number)
   end
 
   def set_todo

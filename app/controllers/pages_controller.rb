@@ -16,19 +16,19 @@ class PagesController < ApplicationController
   end
 
   def set_paragraph
-    @paragraph = @page.paragraphs.create(body: para_params[:body], num: @page.count)
+    @paragraph = @page.paragraphs.create(body: para_params[:body], num: @page.next_paragraph_number)
   end
 
   def set_todo
     page = params[:page] ? Page.find(params[:page]) : @page
-    change_paragraph = page.paragraphs.find_by(num: params[:id])
-    change_paragraph.update(todo: Date.today)
+    paragraph_to_update = page.find_paragraphs_by_num(params[:id])
+    paragraph_to_update.update(todo: Date.today)
   end
 
   def set_important
     page = params[:page] ? Page.find(params[:page]) : @page
-    change_paragraph = page.paragraphs.find_by(num: params[:id])
-    change_paragraph.update(important: true)
+    paragraph_to_update = page.find_paragraphs_by_num(params[:id])
+    paragraph_to_update.update(important: true)
   end
 
   private

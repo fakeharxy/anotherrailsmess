@@ -5,7 +5,7 @@ class Page < ApplicationRecord
     paragraphs.size + 1
   end
 
-  def find_paragraphs_by_num(id)
+  def find_paragraph_by_num(id)
     paragraphs.find_by(num: id)
   end
 

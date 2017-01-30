@@ -8,11 +8,11 @@ class PagesController < ApplicationController
 
   def show
     @past_page = Page.find(params[:id])
-    @paragraphs = @past_page.paragraphs.all
+    @paragraphs = @past_page.paragraphs.all.order(:num)
   end
 
   def new
-    @paragraphs = @page.paragraphs.all
+    @paragraphs = @page.paragraphs.all.order(:num)
   end
 
   def set_paragraph
@@ -22,14 +22,14 @@ class PagesController < ApplicationController
 
   def set_todo
     find_page_if_archive
-      .find_paragraphs_by_num(params[:id])
-      .update(todo: Date.today)
+      .find_paragraph_by_num(params[:id])
+      .set_paragraph_as_todo
   end
 
   def set_important
     find_page_if_archive
-      .find_paragraphs_by_num(params[:id])
-      .update(important: true)
+      .find_paragraph_by_num(params[:id])
+      .set_paragraph_as_important
   end
 
   private

@@ -20,4 +20,13 @@ RSpec.describe Paragraph, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'can set a paragraph as important' do
+    subject.set_paragraph_as_important
+    expect(subject.important).to eq true
+  end
+
+  it 'can set a paragraph as a todo' do
+    subject.set_paragraph_as_todo
+    expect(subject.todo).to eq Date.today
+  end
 end

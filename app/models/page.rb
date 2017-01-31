@@ -9,4 +9,8 @@ class Page < ApplicationRecord
     paragraphs.find_by(num: id)
   end
 
+  def set_title(title)
+    update(title: title)
+  end
+
 end

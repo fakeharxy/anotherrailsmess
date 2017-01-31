@@ -1,4 +1,4 @@
-<h1> New Page </h1>
+<h1 id="title" contenteditable="true"><%= @title %> </h1>
 
 <% @paragraphs.each do |paragraph| %>
   <div class="panel panel-borderless">
@@ -19,6 +19,17 @@
 $(document).ready(function(){
   $('html, body').animate( { scrollTop: $(document).height() }, 1000 );
   $('.type').focus();
+});
+
+
+$(function() {
+  $("#title").keypress(function (e) {
+    if(e.which == 13 ) {
+      $.post( '/pages/add_title', { title: $(this).text() });
+      $(this).blur();
+      e.preventDefault();
+    }
+  });
 });
 
 $(function() {

@@ -19,4 +19,9 @@ RSpec.describe Page, type: :model do
     expect(subject.next_paragraph_number).to eq 2
   end
 
+  it 'can add a title' do
+    subject.set_title('bozo')
+    expect(subject.title).to eq 'bozo'
+  end
+
 end

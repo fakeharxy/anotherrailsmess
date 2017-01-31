@@ -2,7 +2,7 @@
 
 <% if (@pages != []) %>
   <% @pages.each do |page| %>
-    <li><a href="/pages/<%= page.id %>"> <%= page.date %> </a></li>
+    <li><a href="/pages/<%= page.id %>"> <%= page.title || "Untitled" %> </a> <%= page.date %></li>
   <% end %>
 <% else %>
   <p> Looks like you haven't started your focusjournal yet. Go to Today to start! </p>

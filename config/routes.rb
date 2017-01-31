@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'pages/paragraph', to: 'pages#set_paragraph'
   post 'pages/paragraph/todo/:id', to: 'pages#set_todo'
   post 'pages/paragraph/important/:id', to: 'pages#set_important'
+  post 'pages/add_title', to: 'pages#add_title'
 
   resources :pages
   root 'welcome#index'

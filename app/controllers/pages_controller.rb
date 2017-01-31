@@ -2,8 +2,7 @@ class PagesController < ApplicationController
   before_action :create_page
 
   def index
-    @pages = Page.all.reverse
-    @pages.shift
+    @pages = Page.all.drop(1)
   end
 
   def show
@@ -12,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def new
+    @title = @page.title || "New Page"
     @paragraphs = @page.paragraphs.all.order(:num)
   end
 
@@ -30,6 +30,11 @@ class PagesController < ApplicationController
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
       .set_paragraph_as_important
+  end
+
+  def add_title
+    find_page_if_archive
+      .set_title(params[:title])
   end
 
   private

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :create_page
 
   def index
-    @pages = Page.all.drop(1)
+    @pages = Page.all.order(date: :desc).drop(1)
   end
 
   def show

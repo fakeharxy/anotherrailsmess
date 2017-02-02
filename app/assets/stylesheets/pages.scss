@@ -27,6 +27,15 @@
   box-shadow: none !important;
 }
 
+.pagehr {
+  margin: 5px auto;
+  max-width: 50%;
+}
+
+.pagehr:last-of-type {
+  display:none;
+}
+
 .panel-borderless:hover .btn-xs {
   display:block !important;
 }

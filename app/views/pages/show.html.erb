@@ -1,15 +1,6 @@
 <h1> <%= @past_page.title || "Untitled" %></h1>
 
-<% @paragraphs.each do |paragraph| %>
-  <div class="panel panel-borderless">
-    <div class='para panel-body' id='para<%= paragraph.num %>'>
-      <button class="todo btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
-      <button class="important btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
-      <%=raw paragraph.body %>
-    </div>
-  </div>
-  <hr class='pagehr'>
-<% end %>
+<%= render @paragraphs %>
 
 <script>
 $(document).off('click', '.todo').on('click', '.todo', function () {

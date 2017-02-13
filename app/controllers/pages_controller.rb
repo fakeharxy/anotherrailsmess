@@ -16,8 +16,11 @@ class PagesController < ApplicationController
   end
 
   def set_paragraph
-    @page.paragraphs
+    @new_paragraph = @page.paragraphs
       .create(body: para_params[:body], num: @page.next_paragraph_number)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def set_todo

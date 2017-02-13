@@ -1,15 +1,6 @@
 <h3 id="title" contenteditable="true"><%= @title %> </h3>
 
-<% @paragraphs.each do |paragraph| %>
-  <div class="panel panel-borderless">
-    <div class='para panel-body' id='para<%= paragraph.num %>'>
-      <button class="todo btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
-      <button class="important btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
-      <%=raw paragraph.body %>
-    </div>
-  </div>
-  <hr class="pagehr">
-<% end %>
+<%= render @paragraphs %>
 
 <div class="chatbox">
   <textarea id='body' class='type form-control' rows='4'> </textarea>

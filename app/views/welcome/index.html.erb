@@ -1,5 +1,9 @@
 <h3>Dash</h3>
 
 <% @important.each do |para| %>
-  <p> <%= raw para.body %> </p>
+ <div class="panel panel-default">
+  <div class="panel-body">
+    <p> <%= raw para.body %> </p>
+  </div>
+</div> 
 <% end %>

@@ -4,10 +4,15 @@ class Paragraph < ApplicationRecord
 
   def set_paragraph_as_important
     update(important: true)
+    set_lastseen_as_now
   end
 
   def set_paragraph_as_todo
     update(todo: Date.today)
+  end
+
+  def set_lastseen_as_now
+    update(lastseen: DateTime.now)
   end
 
 end

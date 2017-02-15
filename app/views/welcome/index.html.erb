@@ -1,9 +1,19 @@
 <h3>Dash</h3>
 
-<% @important.each do |para| %>
- <div class="panel panel-default">
-  <div class="panel-body">
-    <p> <%= raw para.body %> </p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">You wrote this <%= time_ago_in_words(@important.created_at) %> ago... </h3>
+      <button type="button" class="btn btn-primary next_btn pull-right">Next</button>
   </div>
-</div> 
-<% end %>
+  <div class="panel-body">
+    <p class="main_body"> <%= raw @important.body %> </p>
+  </div>
+
+</div>
+
+<script>
+$(".next_btn").click(function(){
+    $.post('/welcome/next_paragraph')
+});
+
+</script>

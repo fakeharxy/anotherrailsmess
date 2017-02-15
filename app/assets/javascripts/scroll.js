@@ -1,6 +1,8 @@
 $(document).on('turbolinks:load', function() {
-  $('html, body').animate({
-    scrollTop: $(document).height()
-  }, 1000);
-  $('.type').focus();
+  if (document.getElementById("chatbox") !== null) {
+    $('html, body').animate({
+      scrollTop: $(document).height()
+    }, 1000);
+    $('.type').focus();
+  }
 });

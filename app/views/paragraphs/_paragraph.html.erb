@@ -1,8 +1,9 @@
-  <div class="panel panel-borderless">
-    <div class='para panel-body' id='para<%= paragraph.num %>'>
-      <button class="todo btn-primary glyphicon glyphicon-exclamation-sign btn-xs pull-right"> </button>
-      <button class="important btn-primary glyphicon glyphicon-pushpin btn-xs pull-right"> </button>
-      <%=raw paragraph.body %>
-    </div>
+<div class="panel panel-borderless">
+    <button type='button' class="left-hand todo btn-success glyphicon glyphicon-ok btn-xs pull-left"> </button>
+    <button type='button' class="left-hand important btn-warning glyphicon glyphicon-pushpin btn-xs pull-left"> </button>
+  <div class='para panel-body' id='para<%= paragraph.num %>'>
+    <label type='button' class="delete glyphicon glyphicon-remove btn-xs pull-right"> </label>
+    <%=raw paragraph.body %>
   </div>
-  <hr class="pagehr">
+</div>
+<hr class="pagehr">

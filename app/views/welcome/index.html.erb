@@ -1,9 +1,10 @@
 <h3>Dash</h3>
 
 <div class="panel panel-default">
+      <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
+      <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
   <div class="panel-heading">
     <h3 class="panel-title">You wrote this <%= time_ago_in_words(@important.created_at) %> ago... </h3>
-      <button type="button" class="btn btn-primary next_btn pull-right">Next</button>
   </div>
   <div class="panel-body">
     <p class="main_body"> <%= raw @important.body %> </p>

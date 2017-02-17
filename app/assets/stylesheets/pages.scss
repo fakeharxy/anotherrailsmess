@@ -4,8 +4,8 @@
 
 .para {
   padding: 5px 0px 5px 0px;
-  max-width: 95%;
-  margin: auto; 
+  max-width: 87%;
+  margin: auto;
 }
 
 .para:hover {
@@ -18,8 +18,8 @@
 
 .chatbox {
   margin-bottom: 50px;
-  max-width: 95%;
-  margin:auto;
+  max-width: 87%;
+  margin: auto;
 }
 
 .panel-borderless {
@@ -33,16 +33,22 @@
 }
 
 .pagehr:last-of-type {
-  display:none;
+  display: none;
 }
 
 .panel-borderless:hover .btn-xs {
-  display:block !important;
+  display: block !important;
 }
 
 .btn-xs {
-  margin-left: 5px;
+  position: relative;
+  margin-left: 2px;
   display: none !important;
+  margin-top:3px;
+}
+
+.left-hand {
+  margin-top:5px;
 }
 
 .panel-body {

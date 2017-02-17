@@ -7,8 +7,8 @@ class Paragraph < ApplicationRecord
     set_lastseen_as_now
   end
 
-  def set_paragraph_as_todo
-    update(todo: Date.today)
+  def set_paragraph_as_todo(date)
+    update(todo: date)
   end
 
   def set_lastseen_as_now

@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   def set_todo
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
-      .set_paragraph_as_todo
+      .set_paragraph_as_todo(params[:date])
   end
 
   def set_important

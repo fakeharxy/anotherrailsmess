@@ -8,10 +8,16 @@
 
 
 <script>
-$(document).off('click', '.todo').on('click', '.todo', function () {
+$('.todo').on('click', function() {
   var paraId = $(this).index('.todo') + 1;
-  $.post('/pages/paragraph/todo/' + paraId);
-});
+  $(this).pickadate({
+    onSet: function(what) {
+      $.post('/pages/paragraph/todo/' + paraId, {
+        date: new Date(what.select),
+      })
+    }
+  })
+})
 
 $(document).off('click', '.important').on('click', '.important', function () {
   var paraId = $(this).index('.important') + 1;

@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_important
 
   def index
@@ -13,7 +14,7 @@ class WelcomeController < ApplicationController
   private
 
   def set_important
-    @important = Paragraph.all.where(important: true).order(:lastseen).first
+    @important = current_user.paragraphs.where(important: true).order(:lastseen).first
   end
 
 end

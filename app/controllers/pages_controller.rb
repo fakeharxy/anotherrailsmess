@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :create_page
 
   def index
@@ -43,7 +44,7 @@ class PagesController < ApplicationController
   private
 
   def create_page
-    @page = Page.find_by(date: Date.today) || Page.create(date: Date.today)
+    @page = current_user.pages.find_by(date: Date.today) || current_user.pages.create(date: Date.today)
   end
 
   def find_page_if_archive

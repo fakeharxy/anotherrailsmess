@@ -10,7 +10,7 @@
 <script>
 var yesterday = new Date((new Date()).valueOf()-1000*60*60*24);
 
-$('.todo').on('click', function() {
+$(document).on('click', '.todo', function() {
   var paraId = $(this).index('.todo') + 1;
   $(this).pickadate({
     disable: [ { from: [0,0,0], to: yesterday } ],

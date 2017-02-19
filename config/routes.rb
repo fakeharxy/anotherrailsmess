@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/index'
   post 'pages/paragraph', to: 'pages#set_paragraph'
   post 'pages/paragraph/todo/:id', to: 'pages#set_todo'

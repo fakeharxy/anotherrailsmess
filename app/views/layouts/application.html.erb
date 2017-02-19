@@ -32,12 +32,23 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">What is this site?</a></li>
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to('Login', new_user_session_path)  %>
+                    </li>
+                  <% end %>
                 </ul>
               </li>
             </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>   <div class="container">
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <div class="container">
       <%= yield %>
     </div>
   </body>

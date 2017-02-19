@@ -1,5 +1,5 @@
 <h3>Dash</h3>
-
+<% if @important %>
 <div class="panel panel-default">
       <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
       <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
@@ -11,7 +11,7 @@
   </div>
 
 </div>
-
+<% end %>
 <script>
 $(".next_btn").click(function(){
     $.post('/welcome/next_paragraph')

@@ -11,6 +11,7 @@ gem 'pickadate-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
+gem 'devise'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do

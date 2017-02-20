@@ -18,9 +18,9 @@ class WelcomeController < ApplicationController
   end
 
   def set_todos
-    @todos_past = current_user.paragraphs.where("todo < ?", Date.today).order(:body)
+    @todos_past = current_user.paragraphs.where("todo < ?", Date.today).order(:todo)
     @todos_present = current_user.paragraphs.where(todo: Date.today).order(:body)
-    @todos_future = current_user.paragraphs.where("todo > ?", Date.today).order(:body)
+    @todos_future = current_user.paragraphs.where("todo > ?", Date.today).order(:todo)
   end
 
 end

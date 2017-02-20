@@ -11,49 +11,35 @@
 
   </div>
 <% end %>
+<hr />
 <% if @todos_past.first %>
-  <hr />
-  <div class="panel panel-danger">
-    <div class="panel-heading">
-      <h3 class="panel-title">Overdue</h3>
-    </div>
-    <% @todos_past.each do |todo| %>
-      <div class="panel-body">
-        <p class="main_body"> <%= raw todo.body %> </p>
-        <p class="small"> <%= todo.todo %> </p>
-      </div>
-    <% end %>
-  </div>
+      <ul class="list-group">
+        <% @todos_past.each do |todo| %>
+          <li class="list-group-item list-group-item-danger"> <%= raw todo.body %>
+          <span class="badge"> <%= todo.todo %> </span>
+        </li>
+      <% end %>
+      </ul>
 <% end %>
 
 <% if @todos_present.first %>
-  <hr />
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Due Today</h3>
-    </div>
+  <ul class="list-group">
     <% @todos_present.each do |todo| %>
-      <div class="panel-body">
-        <p class="main_body"> <%= raw todo.body %> </p>
-        <p class="small"> <%= todo.todo %> </p>
-      </div>
-    <% end %>
-  </div>
+      <li class="list-group-item list-group-item-info"> <%= raw todo.body %>
+      <span class="badge"> <%= todo.todo %> </span>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
 
 <% if @todos_future.first %>
-  <hr />
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h3 class="panel-title">Upcoming</h3>
-    </div>
+  <ul class="list-group">
     <% @todos_future.each do |todo| %>
-      <div class="panel-body">
-        <p class="main_body"> <%= raw todo.body %> </p>
-        <p class="small"> <%= todo.todo %> </p>
-      </div>
-    <% end %>
-  </div>
+      <li class="list-group-item list-group-item-success"> <%= raw todo.body %>
+      <span class="badge"> <%= todo.todo %> </span>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
 
 <script>

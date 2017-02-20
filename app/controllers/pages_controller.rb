@@ -3,11 +3,11 @@ class PagesController < ApplicationController
   before_action :create_page
 
   def index
-    @pages = Page.all.order(date: :desc).drop(1)
+    @pages = current_user.pages.all.order(date: :desc).drop(1)
   end
 
   def show
-    @past_page = Page.find(params[:id])
+    @past_page = current_user.pages.find(params[:id])
     @paragraphs = @past_page.paragraphs.all.order(:num)
   end
 
@@ -28,12 +28,14 @@ class PagesController < ApplicationController
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
       .set_paragraph_as_todo(params[:date])
+    head :no_content
   end
 
   def set_important
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
       .set_paragraph_as_important
+    head :no_content
   end
 
   def add_title

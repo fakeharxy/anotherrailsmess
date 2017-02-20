@@ -1,20 +1,65 @@
-<h3>Dash</h3>
 <% if @important %>
-<div class="panel panel-default">
-      <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
-      <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
-  <div class="panel-heading">
-    <h3 class="panel-title">You wrote this <%= time_ago_in_words(@important.created_at) %> ago... </h3>
-  </div>
-  <div class="panel-body">
-    <p class="main_body"> <%= raw @important.body %> </p>
-  </div>
+  <div class="panel panel-default">
+    <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
+    <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
+    <div class="panel-heading">
+      <h3 class="panel-title">You wrote this <%= time_ago_in_words(@important.created_at) %> ago... </h3>
+    </div>
+    <div class="panel-body">
+      <p class="main_body"> <%= raw @important.body %> </p>
+    </div>
 
-</div>
+  </div>
 <% end %>
+<% if @todos_past.first %>
+  <hr />
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">Overdue</h3>
+    </div>
+    <% @todos_past.each do |todo| %>
+      <div class="panel-body">
+        <p class="main_body"> <%= raw todo.body %> </p>
+        <p class="small"> <%= todo.todo %> </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @todos_present.first %>
+  <hr />
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Due Today</h3>
+    </div>
+    <% @todos_present.each do |todo| %>
+      <div class="panel-body">
+        <p class="main_body"> <%= raw todo.body %> </p>
+        <p class="small"> <%= todo.todo %> </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @todos_future.first %>
+  <hr />
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Upcoming</h3>
+    </div>
+    <% @todos_future.each do |todo| %>
+      <div class="panel-body">
+        <p class="main_body"> <%= raw todo.body %> </p>
+        <p class="small"> <%= todo.todo %> </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <script>
+
 $(".next_btn").click(function(){
-    $.post('/welcome/next_paragraph')
+  $.post('/welcome/next_paragraph')
 });
 
 </script>

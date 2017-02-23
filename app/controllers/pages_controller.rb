@@ -12,13 +12,14 @@ class PagesController < ApplicationController
   end
 
   def new
-    @title = @page.title || "New Page"
+    @title = @page.title || 'New Page'
     @paragraphs = @page.paragraphs.all.order(:num)
   end
 
   def set_paragraph
     @new_paragraph = @page.paragraphs
-      .create(body: para_params[:body], num: @page.next_paragraph_number)
+                          .create(body: para_params[:body],
+                                  num: @page.next_paragraph_number)
     respond_to do |format|
       format.js
     end
@@ -46,7 +47,8 @@ class PagesController < ApplicationController
   private
 
   def create_page
-    @page = current_user.pages.find_by(date: Date.today) || current_user.pages.create(date: Date.today)
+    @page = current_user.pages.find_by(date: Date.today) ||
+            current_user.pages.create(date: Date.today)
   end
 
   def find_page_if_archive

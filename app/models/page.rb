@@ -12,5 +12,4 @@ class Page < ApplicationRecord
   def set_title(title)
     update(title: title)
   end
-
 end

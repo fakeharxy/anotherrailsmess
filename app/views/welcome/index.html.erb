@@ -1,5 +1,6 @@
 <% if @important %>
   <div class="panel panel-default">
+        <span type='button' class="important_done glyphicon glyphicon-remove pull-right"> </span>
     <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
     <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
     <div class="panel-heading">
@@ -16,9 +17,9 @@
   <ul class="list-group">
     <% @todos_past.each do |todo| %>
       <li class="list-group-item list-group-item-danger">
-        <span class="badge pull-left"> <%= todo.todo %> </span>
-        <p> <%= raw todo.body %> </p>
-        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
+        <span class="badge pull-left"> <%= time_ago_in_words(todo.todo) %> ago </span>
+        <p class="todo_list"> <%= raw todo.body %> </p>
+        <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
         <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
       </li>
     <% end %>
@@ -29,22 +30,34 @@
   <ul class="list-group">
     <% @todos_present.each do |todo| %>
       <li class="list-group-item list-group-item-info">
-        <span class="badge pull-left">  today </span>
-        <p><%= raw todo.body %></p>
-        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
-        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+        <span class="badge pull-left"> today </span>
+        <p class="todo_list"><%= raw todo.body %></p>
+        <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
+        <span  type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
       </li>
     <% end %>
   </ul>
 <% end %>
 
+<% if @todos_tomorrow.first %>
+  <ul class="list-group">
+    <% @todos_tomorrow.each do |todo| %>
+      <li class="list-group-item list-group-item-info">
+        <span class="badge pull-left"> tomorrow </span>
+        <p class="todo_list"><%= raw todo.body %></p>
+        <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
+        <span  type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <% if @todos_future.first %>
   <ul class="list-group">
     <% @todos_future.each do |todo| %>
       <li class="list-group-item list-group-item-success">
-        <span class="badge pull-left"> <%= todo.todo %> </span>
-        <p> <%= raw todo.body %> </p>
-        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
+        <span class="badge pull-left"> Due in <%= distance_of_time_in_words_to_now(todo.todo) %> </span>
+        <p class="todo_list"> <%= raw todo.body %> </p>
+        <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
         <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
       </li>
     <% end %>
@@ -57,4 +70,8 @@ $(".next_btn").click(function(){
   $.post('/welcome/next_paragraph')
 });
 
+$(".todo_done").click(function(){
+  $.post('/welcome/paragraph_remove_todo', {body: $(this).attr('id')})
+  $(this).parent().hide('slow');
+});
 </script>

@@ -14,4 +14,8 @@ class Paragraph < ApplicationRecord
   def set_lastseen_as_now
     update(lastseen: DateTime.now)
   end
+
+  def remove_todo
+    update(todo: nil)
+  end
 end

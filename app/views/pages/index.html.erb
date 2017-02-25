@@ -4,7 +4,7 @@
     <div class="col-md-3">
       <div class="alert alert-info">
         <small><%= page.date %></small>
-      <p><a href="/pages/<%= page.id %>"> <%= page.title || "Untitled" %> </a></p>
+      <p><a href="/pages/<%= page.id %>"> <%= page.title || page.date.strftime("%A") %> </a></p>
       </div>
     </div>
   <% end %>

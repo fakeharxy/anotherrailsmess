@@ -11,6 +11,10 @@ class WelcomeController < ApplicationController
     redirect_to '/'
   end
 
+  def paragraph_remove_todo
+    current_user.paragraphs.find_by(id: params['body'].to_i).remove_todo
+  end
+
   private
 
   def set_important
@@ -20,8 +24,8 @@ class WelcomeController < ApplicationController
   def set_todos
     @todos_past = current_user.paragraphs.where("todo < ?", Date.today).order(:todo)
     @todos_present = current_user.paragraphs.where(todo: Date.today).order(:body)
-    @todos_future = current_user.paragraphs.where("todo > ?", Date.today).order(:todo)
+    @todos_tomorrow = current_user.paragraphs.where(todo: Date.tomorrow).order(:body)
+    @todos_future = current_user.paragraphs.where("todo > ?", Date.tomorrow).order(:todo)
   end
-
 end
 

@@ -1,4 +1,4 @@
-<h1> <%= @past_page.title || "Untitled" %></h1>
+<h1> <%= @past_page.title || @past_page.date.strftime("%A") %></h1>
 <p class="small"> This day is over. Text cannot be changed </p>
 <%= render @paragraphs %>
 

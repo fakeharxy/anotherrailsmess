@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'pages/paragraph/important/:id', to: 'pages#set_important'
   post 'pages/add_title', to: 'pages#add_title'
   post 'welcome/next_paragraph', to: 'welcome#next_paragraph'
+  post 'welcome/paragraph_remove_todo', to: 'welcome#paragraph_remove_todo'
 
 
   resources :pages

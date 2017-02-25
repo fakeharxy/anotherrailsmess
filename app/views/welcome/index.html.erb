@@ -13,35 +13,41 @@
 <% end %>
 <hr />
 <% if @todos_past.first %>
-      <ul class="list-group">
-        <% @todos_past.each do |todo| %>
-          <li class="list-group-item list-group-item-danger">
-          <span class="badge pull-left"> <%= todo.todo %> </span>
-          <%= raw todo.body %>
-        </li>
-      <% end %>
-      </ul>
+  <ul class="list-group">
+    <% @todos_past.each do |todo| %>
+      <li class="list-group-item list-group-item-danger">
+        <span class="badge pull-left"> <%= todo.todo %> </span>
+        <p> <%= raw todo.body %> </p>
+        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
+        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
 
 <% if @todos_present.first %>
   <ul class="list-group">
     <% @todos_present.each do |todo| %>
       <li class="list-group-item list-group-item-info">
-      <span class="badge pull-left">  today </span>
-      <%= raw todo.body %>
-    </li>
-  <% end %>
+        <span class="badge pull-left">  today </span>
+        <p><%= raw todo.body %></p>
+        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
+        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+      </li>
+    <% end %>
   </ul>
 <% end %>
 
 <% if @todos_future.first %>
   <ul class="list-group">
     <% @todos_future.each do |todo| %>
-      <li class="list-group-item list-group-item-success"> 
-      <span class="badge pull-left"> <%= todo.todo %> </span>
-      <%= raw todo.body %>
-    </li>
-  <% end %>
+      <li class="list-group-item list-group-item-success">
+        <span class="badge pull-left"> <%= todo.todo %> </span>
+        <p> <%= raw todo.body %> </p>
+        <span type='button' class="icon glyphicon glyphicon-ok pull-right"> </span>
+        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+      </li>
+    <% end %>
   </ul>
 <% end %>
 

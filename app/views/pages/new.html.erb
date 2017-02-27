@@ -1,5 +1,6 @@
-<h3 id="title" contenteditable="true"><%= @title %> </h3>
-
+<span  type='button' class="edit_button glyphicon glyphicon-pencil pull-left"> </span>
+<h3 id="title" contenteditable="true">
+  <%= @title %> </h3>
 <%= render @paragraphs %>
 
 <div id="chatbox" class="chatbox">
@@ -8,9 +9,14 @@
 
 <script>
 
+$(document).on('click', '.edit_button', function() {
+  $("#title").focus();
+  $("#title").html('');
+});
+
 $(document).off('click', '.important').on('click', '.important', function() {
   var paraId = $(this).index('.important') + 1;
   $.post('/pages/paragraph/important/' + paraId);
-  });
+});
 
 </script>

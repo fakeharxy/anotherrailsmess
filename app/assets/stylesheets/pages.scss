@@ -15,7 +15,11 @@
 }
 
 .small {
-  color:lightgrey;
+  color:#c5c5c5;
+}
+
+.import_styles {
+  background-color: #34ACAF !important;
 }
 
 .para:hover {
@@ -70,6 +74,15 @@
   margin-bottom: 2px !important;
 }
 
+#title {
+  padding-left: 0px !important;
+  margin-left: 30px;
+}
+
 .chatbox {
   margin-top: 7px;
+}
+
+.indent {
+  margin-left: 30px;
 }

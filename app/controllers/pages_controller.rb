@@ -36,7 +36,6 @@ class PagesController < ApplicationController
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
       .set_paragraph_as_important
-    head :no_content
   end
 
   def add_title

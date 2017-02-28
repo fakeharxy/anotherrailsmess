@@ -1,13 +1,15 @@
 <% if @important %>
   <div class="panel panel-default">
-        <span type='button' class="important_done glyphicon glyphicon-remove pull-right"> </span>
     <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
     <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
     <div class="panel-heading">
-      <h3 class="panel-title">You wrote this <%= time_ago_in_words(@important.created_at) %> ago... </h3>
+      <h3 class="panel-title">Today's Starred Entry</h3>
     </div>
     <div class="panel-body">
+      <span type='button' class="important_done glyphicon glyphicon-remove pull-right"> </span>
       <p class="main_body"> <%= raw @important.body %> </p>
+      <p class="small indent"> <a href="/pages/<%= @important.page.id %>"> You wrote this <%= time_ago_in_words(@important.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
+      </p>
     </div>
 
   </div>
@@ -72,6 +74,6 @@ $(".next_btn").click(function(){
 
 $(".todo_done").click(function(){
   $.post('/welcome/paragraph_remove_todo', {body: $(this).attr('id')})
-  $(this).parent().hide('slow');
+    $(this).parent().hide('slow');
 });
 </script>

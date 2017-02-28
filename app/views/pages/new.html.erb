@@ -17,7 +17,7 @@ $(document).on('click', '.edit_button', function() {
 $(document).off('click', '.important').on('click', '.important', function() {
   var paraId = $(this).index('.important') + 1;
   $.post('/pages/paragraph/important/' + paraId);
-  $(this).siblings('.para').addClass('import_styles');
+  $(this).siblings('.para').toggleClass('import_styles');
 });
 
 </script>

@@ -2,8 +2,8 @@ class Paragraph < ApplicationRecord
   belongs_to :page
   validates_presence_of :body, :num
 
-  def set_paragraph_as_important
-    update(important: true)
+  def switch_paragraphs_importance
+    important == true ? update(important: nil) : update(important: true)
     set_lastseen_as_now
   end
 

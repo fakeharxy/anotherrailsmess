@@ -35,7 +35,7 @@ class PagesController < ApplicationController
   def set_important
     find_page_if_archive
       .find_paragraph_by_num(params[:id])
-      .set_paragraph_as_important
+      .switch_paragraphs_importance
   end
 
   def add_title

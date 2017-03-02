@@ -1,12 +1,10 @@
 <% if @important %>
   <div class="panel panel-default">
-    <label class="btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
-    <label class="second btn glyphicon glyphicon-chevron-right next_btn pull-right"></label>
+      <span type='button' class="important_hide glyphicon glyphicon-remove pull-right"> </span>
     <div class="panel-heading">
       <h3 class="panel-title">Today's Starred Entry</h3>
     </div>
     <div class="panel-body">
-      <span type='button' class="important_done glyphicon glyphicon-remove pull-right"> </span>
       <p class="main_body"> <%= raw @important.body %> </p>
       <p class="small indent"> <a href="/pages/<%= @important.page.id %>"> You wrote this <%= time_ago_in_words(@important.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
       </p>

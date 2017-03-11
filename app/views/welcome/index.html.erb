@@ -1,6 +1,6 @@
 <% if @important %>
   <div class="panel panel-default">
-      <span type='button' class="important_hide glyphicon glyphicon-remove pull-right"> </span>
+    <span type='button' class="important_hide glyphicon glyphicon-remove pull-right"> </span>
     <div class="panel-heading">
       <h3 class="panel-title">Today's Starred Entry</h3>
     </div>
@@ -20,7 +20,13 @@
         <span class="badge pull-left"> <%= time_ago_in_words(todo.todo) %> ago </span>
         <p class="todo_list"> <%= raw todo.body %> </p>
         <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
-        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+        <div class="dropdown pull-right">
+          <span class="icon glyphicon glyphicon-option-horizontal pull-right dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/pages/<%= todo.page.id %>">Go to page</a></li>
+          </ul>
+        </div>
       </li>
     <% end %>
   </ul>
@@ -33,7 +39,13 @@
         <span class="badge pull-left"> today </span>
         <p class="todo_list"><%= raw todo.body %></p>
         <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
-        <span  type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+        <div class="dropdown pull-right">
+          <span class="icon glyphicon glyphicon-option-horizontal pull-right dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/pages/<%= todo.page.id %>">Go to page</a></li>
+          </ul>
+        </div>
       </li>
     <% end %>
   </ul>
@@ -46,7 +58,13 @@
         <span class="badge pull-left"> tomorrow </span>
         <p class="todo_list"><%= raw todo.body %></p>
         <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
-        <span  type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+        <div class="dropdown pull-right">
+          <span class="icon glyphicon glyphicon-option-horizontal pull-right dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/pages/<%= todo.page.id %>">Go to page</a></li>
+          </ul>
+        </div>
       </li>
     <% end %>
   </ul>
@@ -58,7 +76,13 @@
         <span class="badge pull-left"> Due in <%= distance_of_time_in_words_to_now(todo.todo) %> </span>
         <p class="todo_list"> <%= raw todo.body %> </p>
         <span id="<%= todo.id %>" type='button' class="todo_done icon glyphicon glyphicon-ok pull-right"> </span>
-        <span type='button' class="icon glyphicon glyphicon-option-horizontal pull-right"> </span>
+        <div class="dropdown pull-right">
+          <span class="icon glyphicon glyphicon-option-horizontal pull-right dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/pages/<%= todo.page.id %>">Go to page</a></li>
+          </ul>
+        </div>
       </li>
     <% end %>
   </ul>

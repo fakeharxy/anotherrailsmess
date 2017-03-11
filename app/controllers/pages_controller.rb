@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
   def show
     @past_page = current_user.pages.find(params[:id])
+    cookies["past_page"] = @past_page.id
     @paragraphs = @past_page.paragraphs.all.order(:num)
   end
 
@@ -51,7 +52,7 @@ class PagesController < ApplicationController
   end
 
   def find_page_if_archive
-    params[:page] ? Page.find(params[:page]) : @page
+    params[:page] ? Page.find(params[:page]) : cookies["past_page"] ? Page.find(cookies["past_page"]) : @page
   end
 
   def para_params

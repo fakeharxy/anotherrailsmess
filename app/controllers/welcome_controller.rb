@@ -22,6 +22,7 @@ class WelcomeController < ApplicationController
   end
 
   def set_todos
+    @any = current_user.paragraphs.where.not(todo: nil)
     @todos_past = current_user.paragraphs.where("todo < ?", Date.today).order(:todo)
     @todos_present = current_user.paragraphs.where(todo: Date.today).order(:body)
     @todos_tomorrow = current_user.paragraphs.where(todo: Date.tomorrow).order(:body)

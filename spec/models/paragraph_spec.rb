@@ -21,12 +21,24 @@ RSpec.describe Paragraph, type: :model do
   end
 
   it 'can set a paragraph as important' do
-    subject.set_paragraph_as_important
+    subject.switch_paragraphs_importance
     expect(subject.important).to eq true
   end
 
   it 'can set a paragraph as a todo' do
-    subject.set_paragraph_as_todo
+    subject.set_paragraph_as_todo(Date.today)
     expect(subject.todo).to eq Date.today
+  end
+
+  it 'can be tagged' do
+    tag = ['lol']
+    subject.apply_tag_or_tags(tag)
+    expect(subject.tag_list).to include "lol"
+  end
+
+  it 'can be tagged with multiple tags' do
+    tag = ['lol', 'happy', 'bad_breath']
+    subject.apply_tag_or_tags(tag)
+    expect(subject.tag_list).to include("lol", "happy", "bad_breath")
   end
 end

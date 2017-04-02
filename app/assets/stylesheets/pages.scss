@@ -22,18 +22,17 @@
   color:#c5c5c5;
 }
 
-.dropdown-menu {
-  margin-top:-9px !important;
+#bootstrap-overrides .dropdown-menu {
+  margin-top:-9px;
 }
 
-.import_styles {
-  background-color: #40e1e5 !important;
+#bootstrap-overrides .import_styles {
+  background-color: #40e1e5;
 }
 
-.btn-info {
-  color: yellow !important;
+#bootstrap-overrides .btn-info {
+  color: yellow;
 }
-
 
 .para:hover {
   background-color: #fafafa;
@@ -49,9 +48,9 @@
   margin: auto;
 }
 
-.panel-borderless {
+#bootstrap-overrides .panel-borderless {
   border: 0;
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .pagehr {
@@ -59,18 +58,30 @@
   max-width: 50%;
 }
 
+#bootstrap-overrides .tag-field {
+  display: table;
+  width: 40%;
+  margin: auto;
+}
+
+.tag-field.hidden {
+  display: none !important;
+  width: 40%;
+  margin: auto;
+}
+
 .pagehr:last-of-type {
   display: none;
 }
 
-.panel-borderless:hover .btn-xs {
-  display: block !important;
+#bootstrap-overrides .panel-borderless:hover .btn-xs {
+  display: block;
 }
 
-.btn-xs {
+#bootstrap-overrides .btn-xs {
   position: relative;
   margin-left: 2px;
-  display: none !important;
+  display: none;
   margin-top:3px;
 }
 
@@ -78,17 +89,17 @@
   margin-top:7px;
 }
 
-.panel-body {
-  padding: 5px !important;
+#bootstrap-overrides .panel-body {
+  padding: 15px 5px;
   line-height: 2em;
 }
 
-.panel {
-  margin-bottom: 2px !important;
+#bootstrap-overrides .panel {
+  margin-bottom: 2px;
 }
 
-#title {
-  padding-left: 0px !important;
+#bootstrap-overrides #title {
+  padding-left: 0px;
   margin-left: 30px;
 }
 

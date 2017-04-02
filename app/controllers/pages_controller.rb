@@ -39,6 +39,13 @@ class PagesController < ApplicationController
       .switch_paragraphs_importance
   end
 
+  def add_tags
+    find_page_if_archive
+      .find_paragraph_by_num(params[:id])
+      .apply_tag_or_tags(params[:tag])
+  end
+
+
   def add_title
     find_page_if_archive
       .set_title(params[:title])

@@ -1,9 +1,16 @@
 <div class="panel panel-borderless">
   <button type='button' class="left-hand todo btn-success glyphicon glyphicon-calendar btn-xs pull-left"> </button>
-  <button type='button' class="left-hand important btn-info glyphicon glyphicon-star btn-xs pull-left"> </button>
-  <div class='<%= "import_styles" if paragraph.important %> para panel-body' istastar='para<%= paragraph.num %>'>
+  <button type='button' class="left-hand important btn-info glyphicon glyphicon-star btn-xs pull-left" id="<%= paragraph.num %>"> </button>
+  <div class='<%= "import_styles" if paragraph.important %> para panel-body' id='para<%= paragraph.num %>'>
     <label type='button' class="delete glyphicon glyphicon-remove btn-xs pull-right"> </label>
     <%=raw paragraph.body %>
+  </div>
+  <div class="input-group tag-field hidden">
+    <span class="input-group-addon" id="basic-addon1">#</span>
+    <input type="text" class="form-control" placeholder="tags" aria-describedby="basic-addon1">
+    <span class="input-group-btn">
+      <button class="btn btn-default tag_submit" id="<%= paragraph.id %>" type="button">Add</button>
+    </span>
   </div>
 </div>
 <hr class="pagehr">

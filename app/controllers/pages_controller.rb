@@ -19,12 +19,19 @@ class PagesController < ApplicationController
 
   def set_paragraph
     @new_paragraph = @page.paragraphs
-                          .create(body: para_params[:body],
-                                  num: @page.next_paragraph_number)
+      .create(body: para_params[:body],
+    num: @page.next_paragraph_number)
     respond_to do |format|
       format.js
     end
   end
+
+  def set_tags
+    find_paragraph_by_id(params[:id])
+      .apply_tag_or_tags(params[:tags])
+    head :no_content
+  end
+
 
   def set_todo
     find_page_if_archive
@@ -39,13 +46,6 @@ class PagesController < ApplicationController
       .switch_paragraphs_importance
   end
 
-  def add_tags
-    find_page_if_archive
-      .find_paragraph_by_num(params[:id])
-      .apply_tag_or_tags(params[:tag])
-  end
-
-
   def add_title
     find_page_if_archive
       .set_title(params[:title])
@@ -53,9 +53,13 @@ class PagesController < ApplicationController
 
   private
 
+  def find_paragraph_by_id(id)
+    Paragraph.find_by(id: id)
+  end
+
   def create_page
     @page = current_user.pages.find_by(date: Date.today) ||
-            current_user.pages.create(date: Date.today)
+      current_user.pages.create(date: Date.today)
   end
 
   def find_page_if_archive

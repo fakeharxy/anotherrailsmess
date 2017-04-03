@@ -10,6 +10,7 @@ class Paragraph < ApplicationRecord
 
   def apply_tag_or_tags(tags)
     tag_list.add(tags)
+    save
   end
 
   def set_paragraph_as_todo(date)

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'pages/add_title', to: 'pages#add_title'
   post 'welcome/next_paragraph', to: 'welcome#next_paragraph'
   post 'welcome/paragraph_remove_todo', to: 'welcome#paragraph_remove_todo'
+  post 'pages/paragraph/tags/:id', to: 'pages#set_tags'
 
 
   resources :pages

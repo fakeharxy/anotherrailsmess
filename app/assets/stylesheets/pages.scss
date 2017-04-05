@@ -59,10 +59,11 @@
 }
 
 #bootstrap-overrides .tag-field {
+  position: absolute;
   display: table;
   width: 40%;
-  margin: auto;
-  bottom: 45px;
+  margin-left: 300px;
+  margin-top: -45px;
 }
 
 .tag-field.hidden {
@@ -81,9 +82,9 @@
 
 #bootstrap-overrides .btn-xs {
   position: relative;
-  margin-left: 2px;
   display: none;
-  margin-top: 3px;
+  top: 7px;
+  left: 37px;
 }
 
 .left-hand {

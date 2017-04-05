@@ -9,7 +9,9 @@ class Paragraph < ApplicationRecord
   end
 
   def apply_tag_or_tags(tags)
-    tag_list.add(tags)
+    tags.split(',').each do |tag|
+      tag_list.add(tag)
+    end
     save
   end
 

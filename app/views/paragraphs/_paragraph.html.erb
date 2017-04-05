@@ -1,4 +1,5 @@
 <div class="panel panel-borderless">
+  <form>
   <button type='button' class="left-hand todo btn-success glyphicon glyphicon-calendar btn-xs pull-left"> </button>
   <button type='button' class="left-hand important btn-info glyphicon glyphicon-star btn-xs pull-left" id="<%= paragraph.num %>"> </button>
   <div class='<%= "import_styles" if paragraph.important %> para panel-body' id='para<%= paragraph.num %>'>
@@ -9,9 +10,10 @@
     <span class="input-group-addon" id="basic-addon1">#</span>
     <input type="text" class="form-control" placeholder="tags" aria-describedby="basic-addon1">
     <span class="input-group-btn">
-      <button class="btn btn-default tag_submit" id="<%= paragraph.id %>" type="button">Add</button>
+      <button class="btn btn-default tag_submit" id="<%= paragraph.id %>" type="submit">Add</button>
     </span>
   </div>
+  </form>
 </div>
 <hr class="pagehr">
 

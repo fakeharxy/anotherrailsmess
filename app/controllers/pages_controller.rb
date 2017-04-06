@@ -28,11 +28,9 @@ class PagesController < ApplicationController
   end
 
   def set_tags
-    find_paragraph_by_id(params[:id])
-      .apply_tag_or_tags(params[:tags])
+    current_user.apply_tag_or_tags(params[:tags], find_paragraph_by_id(params[:id]))
     head :no_content
   end
-
 
   def set_todo
     find_page_if_archive

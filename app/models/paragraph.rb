@@ -8,12 +8,6 @@ class Paragraph < ApplicationRecord
     set_lastseen_as_now
   end
 
-  def apply_tag_or_tags(tags)
-    tags.split(',').each do |tag|
-      tag_list.add(tag)
-    end
-    save
-  end
 
   def set_paragraph_as_todo(date)
     update(todo: date)

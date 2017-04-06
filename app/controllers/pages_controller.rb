@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :create_page
 
   def index
+    clean_up_pages
     @pages = current_user.pages.all.order(date: :desc).drop(1)
   end
 
@@ -52,6 +53,15 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def clean_up_pages
+    @pages = current_user.pages.all.order(date: :desc).drop(1)
+    @pages.each do |page|
+      if page.paragraphs == []
+        page.destroy
+      end
+    end
+  end
 
   def find_paragraph_by_id(id)
     Paragraph.find_by(id: id)

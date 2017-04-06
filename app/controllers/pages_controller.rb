@@ -68,6 +68,7 @@ class PagesController < ApplicationController
   end
 
   def create_page
+    cookies["past_page"] = nil
     @page = current_user.pages.find_by(date: Date.today) ||
       current_user.pages.create(date: Date.today)
   end

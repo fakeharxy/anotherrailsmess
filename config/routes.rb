@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/index'
+
   devise_for :users
   get 'welcome/index'
   post 'pages/paragraph', to: 'pages#set_paragraph'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
 
   resources :pages
+  resources :tags
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -8,9 +8,8 @@ class PagesController < ApplicationController
   end
 
   def show
-    @past_page = current_user.pages.find(params[:id])
-    cookies["past_page"] = @past_page.id
-    @paragraphs = @past_page.paragraphs.all.order(:num)
+    @page = current_user.pages.find(params[:id])
+    @paragraphs = @page.paragraphs.all.order(:num)
   end
 
   def new
@@ -33,20 +32,19 @@ class PagesController < ApplicationController
   end
 
   def set_todo
-    find_page_if_archive
-      .find_paragraph_by_num(params[:id])
+      find_paragraph_by_id(params[:id])
       .set_paragraph_as_todo(params[:date])
     head :no_content
   end
 
-  def set_important
-    find_page_if_archive
-      .find_paragraph_by_num(params[:id])
-      .switch_paragraphs_importance
-  end
+  # def set_important
+  #   find_page_if_archive
+  #     .find_paragraph_by_num(params[:id])
+  #     .switch_paragraphs_importance
+  # end
 
   def add_title
-    find_page_if_archive
+    @page
       .set_title(params[:title])
   end
 
@@ -66,14 +64,13 @@ class PagesController < ApplicationController
   end
 
   def create_page
-    cookies["past_page"] = nil
     @page = current_user.pages.find_by(date: Date.today) ||
       current_user.pages.create(date: Date.today)
   end
 
-  def find_page_if_archive
-    params[:page] ? Page.find(params[:page]) : cookies["past_page"] ? Page.find(cookies["past_page"]) : @page
-  end
+  # def find_page_if_archive
+  #   params[:page] ? Page.find(params[:page]) : @page
+  # end
 
   def para_params
     params.permit(:body)

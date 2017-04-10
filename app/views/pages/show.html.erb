@@ -1,5 +1,5 @@
-<h1> <%= @past_page.title || @past_page.date.strftime("%A") %></h1>
-<h6> <%= @past_page.date.strftime("%d-%m-%Y") %> </h6>
+<h1> <%= @page.title || @page.date.strftime("%A") %></h1>
+<h6> <%= @page.date.strftime("%d-%m-%Y") %> </h6>
 <p class="small"> This day is over. Text cannot be changed </p>
 <%= render @paragraphs %>
 
@@ -8,7 +8,7 @@
 $(document).off('click', '.important').on('click', '.important', function() {
   var paraId = $(this).index('.important') + 1;
   $.post('/pages/paragraph/important/' + paraId, {
-    page: <%= @past_page.id %>
+    page: <%= @page.id %>
 });
   $(this).siblings('.para').toggleClass('import_styles');
   });

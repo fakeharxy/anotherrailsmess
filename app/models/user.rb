@@ -14,4 +14,8 @@ class User < ApplicationRecord
     save
   end
 
+  def first_daily_log_on?
+    new_day != Date.today
+  end
+
 end

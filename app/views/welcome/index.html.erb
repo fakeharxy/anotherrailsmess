@@ -1,15 +1,13 @@
-<% if @important %>
+<% if @tag %>
   <div class="panel panel-default">
-    <span type='button' class="important_hide glyphicon glyphicon-remove pull-right"> </span>
     <div class="panel-heading">
-      <h3 class="panel-title">Today's Starred Entry</h3>
+      <h6 class="panel-title">Tag of the day: <a href="tags/<%= @tag.name %>"><%= @tag.name %></a></h3>
     </div>
     <div class="panel-body">
-      <p class="main_body"> <%= raw @important.body %> </p>
-      <p class="small indent"> <a href="/pages/<%= @important.page.id %>"> You wrote this <%= time_ago_in_words(@important.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
+      <p class="main_body"> <%= raw @para_of_the_day.body %> </p>
+      <p class="small indent"> <a href="/pages/<%= @para_of_the_day.page.id %>"> You wrote this <%= time_ago_in_words(@para_of_the_day.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
       </p>
     </div>
-
   </div>
 <% else %>
   <div> <p> There are no starred entries at the moment. </p> </div>

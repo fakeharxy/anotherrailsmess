@@ -1,8 +1,11 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_important, :set_todos
+  before_action :set_todos
+  before_action :begin_new_day
 
   def index
+    @tag = current_user.owned_tags.order("last_seen").last
+    @para_of_the_day = Paragraph.tagged_with(@tag, :on => :tags, :owned_by => current_user).shuffle.first
   end
 
   def next_paragraph
@@ -17,8 +20,16 @@ class WelcomeController < ApplicationController
 
   private
 
-  def set_important
-    @important = current_user.paragraphs.where(important: true).order(:lastseen).first
+  # def set_important
+  #   @important = current_user.paragraphs.where(important: true).order(:lastseen).first
+  # end
+
+  def begin_new_day
+    if current_user.first_daily_log_on?
+      @tag = Tag.order("last_seen").last
+      @tag.update(last_seen: Date.today)
+      current_user.update(new_day: Date.today)
+    end
   end
 
   def set_todos

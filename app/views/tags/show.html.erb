@@ -1,3 +1,9 @@
 <% @paragraphs.each do |para| %>
-  <%= raw para.body %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p class="main_body"> <%= raw para.body %> </p>
+      <p class="small indent"> <a href="/pages/<%= para.page.id %>"> You wrote this <%= time_ago_in_words(para.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
+      </p>
+    </div>
+</div>
 <% end %>

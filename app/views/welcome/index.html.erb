@@ -1,9 +1,10 @@
 <% if @tag %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h6 class="panel-title">Tag of the day: <a href="tags/<%= @tag.name %>"><%= @tag.name %></a></h3>
+      <h6 class="panel-title">Tag of the day </h3>
     </div>
     <div class="panel-body">
+      <h4 class="main_body"><a href="tags/<%= @tag.name %>">#<%= @tag.name %></a></h4>
       <p class="main_body"> <%= raw @para_of_the_day.body %> </p>
       <p class="small indent"> <a href="/pages/<%= @para_of_the_day.page.id %>"> You wrote this <%= time_ago_in_words(@para_of_the_day.created_at) %> ago... <span  type='button' class="glyphicon glyphicon-arrow-right"> </span> </a>
       </p>

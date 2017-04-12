@@ -1,5 +1,9 @@
-<% @tags.each do |tag| %>
-  <div class="list-group">
-    <a href="/tags/<%= tag %>" class="tag-list list-group-item list-group-item-action"> <%= tag %></a>
-  </div>
+<% if @tags %>
+  <% @tags.each do |tag| %>
+    <div class="list-group">
+      <a href="/tags/<%= tag %>" class="tag-list list-group-item list-group-item-action"> <%= tag %></a>
+    </div>
+  <% end %>
+<% else %>
+  <p> You have no tags at present. You can add tags by clicking on any paragraph and entering a tag </p>
 <% end %>

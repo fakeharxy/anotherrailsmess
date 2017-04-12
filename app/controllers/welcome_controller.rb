@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_user!
   before_action :set_todos
-  before_action :begin_new_day
 
   def index
+    begin_new_day if current_user.first_daily_log_on?
     @tag = current_user.owned_tags.order("last_seen").last
     @para_of_the_day = Paragraph.tagged_with(@tag, :on => :tags, :owned_by => current_user).shuffle.first
   end
@@ -25,11 +25,9 @@ class WelcomeController < ApplicationController
   # end
 
   def begin_new_day
-    if current_user.first_daily_log_on?
-      @tag = Tag.order("last_seen").last
-      @tag.update(last_seen: Date.today)
+    @tag = current_user.owned_tags.order("last_seen").first
+      @tag.update(last_seen: Date.today) if @tag
       current_user.update(new_day: Date.today)
-    end
   end
 
   def set_todos
